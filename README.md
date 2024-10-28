@@ -6,4 +6,4 @@
   </a>
 </p>
 
-# Quanta - Σ in innovation, harmony in finance
+<h1 style="text-align: center;">Σ in innovation, harmony in finance.</h1>
