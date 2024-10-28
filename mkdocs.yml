@@ -1,14 +1,14 @@
 # Project information
 site_name: Quanta
-site_url: https://quanta.github.io/quanta/
+site_url: https://qntx.github.io/quanta/
 site_author: CtrlX
 site_description: >-
   Write your documentation in Markdown and create a professional static site in
   minutes – searchable, customizable, in 60+ languages, for all devices
 
 # Repository
-repo_url: https://github.com/gitctrlx/quanta
-repo_name: gitctrlx/quanta
+repo_url: https://github.com/qntx/quanta
+repo_name: qntx/quanta
 
 # Copyright
 copyright: >
@@ -71,7 +71,7 @@ extra:
 
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/gitctrlx
+      link: https://github.com/Qntx
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/GitCtrlX
 
