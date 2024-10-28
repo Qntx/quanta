@@ -1,0 +1,238 @@
+# Project information
+site_name: Quanta
+site_url: https://quanta.github.io/quanta/
+site_author: CtrlX
+site_description: >-
+  Write your documentation in Markdown and create a professional static site in
+  minutes – searchable, customizable, in 60+ languages, for all devices
+
+# Repository
+repo_url: https://github.com/gitctrlx/quanta
+repo_name: gitctrlx/quanta
+
+# Copyright
+copyright: >
+  Copyright &copy; 2024 - 2025 CtrlX –
+  <a href="#__consent">Change cookie settings</a>
+
+# Configuration
+theme:
+  name: material
+  custom_dir: overrides
+
+  logo: assets/images/logos/logo-white.svg
+  favicon: assets/images/logos/logo.svg
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  language: zh
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - navigation.footer
+
+# Additional configuration
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    consent:
+    actions:
+      - accept
+      - reject
+      - manage
+
+  version:
+    provider: mike
+    default: latest
+    alias: true
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/gitctrlx
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/GitCtrlX
+
+  generator: false
+
+# Plugins
+plugins:
+  - search
+  - privacy
+  - blog
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+  - minify:
+      minify_html: true
+
+# Extra
+# extra_css:
+#     - assets/stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: "index.md"
+
+  - Getting Started:
+    - Overview: "get-started/index.md"
+    - Installation: "get-started/installation.md"
+    - Quick Start: "get-started/quick-start.md"
+
+  - Tutorials:
+    - Overview: "tutorials/index.md"
+    - Configuration: "tutorials/configuration.md"
+
+  - Framework:
+    - Overview: "framework/index.md"
+    - SigmaX:
+        - Overview: "framework/sigmax/index.md"
+        - Usage: "framework/sigmax/usage.md"
+        - API Reference: "framework/sigmax/api.md"  
+    - SigmaData: 
+        - Overview: "framework/sigmadate/index.md"
+        - Usage: "framework/sigmadate/usage.md"
+        - API Reference: "framework/sigmadate/api.md"
+    - SigmaTA:
+        - Overview: "framework/sigmata/index.md"
+        - Usage: "framework/sigmata/usage.md"
+        - API Reference: "framework/sigmata/api.md"
+    - SigmaStats:
+        - Overview: "framework/sigmastats/index.md"
+        - Usage: "framework/sigmastats/usage.md"
+        - API Reference: "framework/sigmastats/api.md"
+    - SigmaOpt:
+        - Overview: "framework/sigmaopt/index.md"
+        - Usage: "framework/sigmaopt/usage.md"
+        - API Reference: "framework/sigmaopt/api.md" 
+    - SigmaRL:
+        - Overview: "framework/sigmarl/index.md"
+        - Usage: "framework/sigmarl/usage.md"
+        - API Reference: "framework/sigmarl/api.md"
+    - SigmaAgent:
+        - Overview: "framework/sigmaagent/index.md"
+        - Usage: "framework/sigmaagent/usage.md"
+        - API Reference: "framework/sigmaagent/api.md"
+    - SigmaChart:
+        - Overview: "framework/sigmachart/index.md"
+        - Usage: "framework/sigmachart/usage.md"
+        - API Reference: "framework/sigmachart/api.md" 
+    - SigmaMsg:
+        - Overview: "framework/sigmamsg/index.md"
+        - Usage: "framework/sigmamsg/usage.md"
+        - API Reference: "framework/sigmamsg/api.md"
+    - SigmaLog:
+        - Overview: "framework/sigmalog/index.md"
+        - Usage: "framework/sigmalog/usage.md"
+        - API Reference: "framework/sigmalog/api.md"
+    - SigmaUtil:
+        - Overview: "framework/sigmautil/index.md"
+        - Usage: "framework/sigmautil/usage.md"
+        - API Reference: "framework/sigmautil/api.md"
+  
+  - Reference:
+      - Overview: "reference/index.md"
+      - Architecture: "reference/architecture.md"
+      - CLI Commands: "reference/cli.md"
+      - Error Codes: "reference/error-codes.md"
+      - About: "reference/about.md"
+      - Performance Metrics: 
+          - Overview: "reference/performance/index.md"
+
+  - Blog:
+      - Overview: "blog/index.md"
+      - Announcements: "blog/announcements.md"

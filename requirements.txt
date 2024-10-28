@@ -1,0 +1,7 @@
+mkdocs
+mkdocs-material
+mkdocs-rss-plugin
+mike
+mkdocs-git-committers-plugin-2
+pymdown-extensions
+mkdocs-minify-plugin
