@@ -46,6 +46,7 @@ theme:
     - search.highlight
     - search.share
     - header.autohide
+    - announce.dismiss
     - navigation.footer
 
 # Additional configuration
