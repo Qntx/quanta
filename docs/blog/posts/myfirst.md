@@ -6,7 +6,9 @@ authors:
   - CtrlX
   - Qntx
 categories:
-  - Holidays
+  - Lifestyle
+  - Develop
+  - Finance
 ---
 
 # Quanta: Σ in innovation, harmony in finance.
@@ -14,4 +16,17 @@ categories:
 
 <!-- more -->
 
-“反者道之动 弱者道之用”
+
+<div style="text-align: center; margin: 2em 0;">
+
+<blockquote style="font-style: italic; font-size: 1em; line-height: 1.5;">
+  反者道之动 弱者道之用
+</blockquote>
+
+</div>
+
+---
+
+<div style="text-align: right; font-size: 0.9em; color: #888;">
+  道德经 第四十
+</div>
