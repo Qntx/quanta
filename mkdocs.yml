@@ -48,6 +48,7 @@ theme:
     - header.autohide
     - announce.dismiss
     - navigation.footer
+    - navigation.indexes
 
 # Additional configuration
 extra:
@@ -81,7 +82,8 @@ extra:
 plugins:
   - search
   - privacy
-  - blog
+  - blog:
+      blog_toc: true
   - rss:
       match_path: blog/posts/.*
       date_from_meta:
@@ -216,5 +218,4 @@ nav:
           - Overview: "reference/performance/index.md"
 
   - Blog:
-      - Overview: "blog/index.md"
-      - Announcements: "blog/announcements.md"
+      - "blog/index.md"
