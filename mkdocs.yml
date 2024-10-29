@@ -81,7 +81,6 @@ extra:
 # Plugins
 plugins:
   - search
-  - privacy
   - blog:
       blog_toc: true
   - rss:
