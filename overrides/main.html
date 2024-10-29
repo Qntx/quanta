@@ -2,12 +2,12 @@
 
 <!-- Custom front matter -->
 {% block extrahead %}
-
+  {{ super() }}
   <!-- Extra style sheets (can't be set in mkdocs.yml due to content hash) -->
-  <link
+  <!-- <link
     rel="stylesheet"
     href="{{ 'assets/stylesheets/custom.css' | url }}"
-  />
+  /> -->
 {% endblock %}
 
 {% block outdated %}
