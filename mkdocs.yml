@@ -152,69 +152,69 @@ nav:
   - Home: "index.md"
 
   - Getting Started:
-    - Overview: "get-started/index.md"
+    - Getting Started: "get-started/index.md"
     - Installation: "get-started/installation.md"
     - Quick Start: "get-started/quick-start.md"
 
   - Tutorials:
-    - Overview: "tutorials/index.md"
+    - Tutorials: "tutorials/index.md"
     - Configuration: "tutorials/configuration.md"
 
   - Framework:
-    - Overview: "framework/index.md"
-    - SigmaX:
-        - Overview: "framework/sigmax/index.md"
+    - Framework: "framework/index.md"
+    - Σ-X:
+        - Σ-X: "framework/sigmax/index.md"
         - Usage: "framework/sigmax/usage.md"
         - API Reference: "framework/sigmax/api.md"  
-    - SigmaData: 
-        - Overview: "framework/sigmadate/index.md"
+    - Σ-Data: 
+        - Σ-Data: "framework/sigmadate/index.md"
         - Usage: "framework/sigmadate/usage.md"
         - API Reference: "framework/sigmadate/api.md"
-    - SigmaTA:
-        - Overview: "framework/sigmata/index.md"
+    - Σ-TA:
+        - Σ-TA: "framework/sigmata/index.md"
         - Usage: "framework/sigmata/usage.md"
         - API Reference: "framework/sigmata/api.md"
-    - SigmaStats:
-        - Overview: "framework/sigmastats/index.md"
+    - Σ-Stats:
+        - Σ-Stats: "framework/sigmastats/index.md"
         - Usage: "framework/sigmastats/usage.md"
         - API Reference: "framework/sigmastats/api.md"
-    - SigmaOpt:
-        - Overview: "framework/sigmaopt/index.md"
+    - Σ-Opt:
+        - Σ-Opt: "framework/sigmaopt/index.md"
         - Usage: "framework/sigmaopt/usage.md"
         - API Reference: "framework/sigmaopt/api.md" 
-    - SigmaRL:
-        - Overview: "framework/sigmarl/index.md"
+    - Σ-RL:
+        - Σ-RL: "framework/sigmarl/index.md"
         - Usage: "framework/sigmarl/usage.md"
         - API Reference: "framework/sigmarl/api.md"
-    - SigmaAgent:
-        - Overview: "framework/sigmaagent/index.md"
+    - Σ-Agent:
+        - Σ-Agent: "framework/sigmaagent/index.md"
         - Usage: "framework/sigmaagent/usage.md"
         - API Reference: "framework/sigmaagent/api.md"
-    - SigmaChart:
-        - Overview: "framework/sigmachart/index.md"
+    - Σ-Chart:
+        - Σ-Chart: "framework/sigmachart/index.md"
         - Usage: "framework/sigmachart/usage.md"
         - API Reference: "framework/sigmachart/api.md" 
-    - SigmaMsg:
-        - Overview: "framework/sigmamsg/index.md"
+    - Σ-Msg:
+        - Σ-Msg: "framework/sigmamsg/index.md"
         - Usage: "framework/sigmamsg/usage.md"
         - API Reference: "framework/sigmamsg/api.md"
-    - SigmaLog:
-        - Overview: "framework/sigmalog/index.md"
+    - Σ-Log:
+        - Σ-Log: "framework/sigmalog/index.md"
         - Usage: "framework/sigmalog/usage.md"
         - API Reference: "framework/sigmalog/api.md"
-    - SigmaUtil:
-        - Overview: "framework/sigmautil/index.md"
+    - Σ-Util:
+        - Σ-Util: "framework/sigmautil/index.md"
         - Usage: "framework/sigmautil/usage.md"
         - API Reference: "framework/sigmautil/api.md"
   
   - Reference:
-      - Overview: "reference/index.md"
+      - Reference: "reference/index.md"
       - Architecture: "reference/architecture.md"
       - CLI Commands: "reference/cli.md"
       - Error Codes: "reference/error-codes.md"
       - About: "reference/about.md"
       - Performance Metrics: 
-          - Overview: "reference/performance/index.md"
+          - Performance Metrics: "reference/performance/index.md"
 
   - Blog:
       - "blog/index.md"
