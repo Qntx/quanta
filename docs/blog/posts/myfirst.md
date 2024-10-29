@@ -9,8 +9,6 @@ categories:
   - Lifestyle
   - Develop
   - Finance
-
-comments: true
 ---
 
 # Quanta: Σ in innovation, harmony in finance.

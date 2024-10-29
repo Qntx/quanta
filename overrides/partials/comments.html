@@ -1,5 +1,5 @@
 
-{% if page.meta.comments %}
+{% if page.file.src_uri.startswith('blog/posts') %}
 <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
 
 <!-- Insert generated snippet here -->
