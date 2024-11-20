@@ -9,23 +9,11 @@
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
-         <loc>https://qntx.github.io/quanta/develop/blog/2024/10/29/quanta-%CF%83-in-innovation-harmony-in-finance/</loc>
+         <loc>https://qntx.github.io/quanta/develop/blog/2024/10/28/quanta-%CF%83-in-innovation-harmony-in-finance/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
          <loc>https://qntx.github.io/quanta/develop/framework/</loc>
-         <lastmod>2024-11-20</lastmod>
-    </url>
-    <url>
-         <loc>https://qntx.github.io/quanta/develop/framework/sigmaagent/</loc>
-         <lastmod>2024-11-20</lastmod>
-    </url>
-    <url>
-         <loc>https://qntx.github.io/quanta/develop/framework/sigmaagent/api/</loc>
-         <lastmod>2024-11-20</lastmod>
-    </url>
-    <url>
-         <loc>https://qntx.github.io/quanta/develop/framework/sigmaagent/usage/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
@@ -34,6 +22,10 @@
     </url>
     <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmachart/api/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmachart/faq/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
@@ -49,7 +41,27 @@
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmadate/faq/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmadate/usage/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmallm/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmallm/api/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmallm/faq/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmallm/usage/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
@@ -58,6 +70,10 @@
     </url>
     <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmalog/api/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmalog/faq/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
@@ -73,6 +89,10 @@
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmamsg/faq/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmamsg/usage/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
@@ -82,6 +102,10 @@
     </url>
     <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmaopt/api/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmaopt/faq/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
@@ -97,6 +121,10 @@
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmarl/faq/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmarl/usage/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
@@ -106,6 +134,10 @@
     </url>
     <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmastats/api/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmastats/faq/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
@@ -121,6 +153,10 @@
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmata/faq/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmata/usage/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
@@ -133,6 +169,10 @@
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmautil/faq/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmautil/usage/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
@@ -142,6 +182,10 @@
     </url>
     <url>
          <loc>https://qntx.github.io/quanta/develop/framework/sigmax/api/</loc>
+         <lastmod>2024-11-20</lastmod>
+    </url>
+    <url>
+         <loc>https://qntx.github.io/quanta/develop/framework/sigmax/faq/</loc>
          <lastmod>2024-11-20</lastmod>
     </url>
     <url>
