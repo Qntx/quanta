@@ -1,1 +1,2 @@
+mkdocs serve
 mike serve
