@@ -1,6 +1,10 @@
 
 
-<h1 style="text-align: center; margin-bottom: 0.5rem;">Σ-Data</h1>
+<h1 style="text-align: center; margin-bottom: 0.5rem;">
+    <a href="https://github.com/Qntx/SigmaData" style="text-decoration: none; color: inherit;">
+        Σ-Data
+    </a>
+</h1>
 <p style="text-align: center; font-size: 1rem; color: #555; margin-top: 0;">
     <strong style="color: #007acc;">v0.4.0</strong>
 </p>
@@ -47,6 +51,7 @@ pip install -r requirements.txt
 - [ ] 支持历史交易记录获取：通过实现 `TradeManager` 与 `Trade` 类实现。
 - [ ] 支持实时数据流：集成 `ccxt.pro` 实时数据流订阅，实现与历史数据无缝衔接。
 - [ ] 单元测试覆盖率提升：增加对核心模块的单元测试，提升代码质量和稳定性。
+- [x] 异步版本：完整的异步功能支持。
 
 ---
 
