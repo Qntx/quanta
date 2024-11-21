@@ -48,6 +48,9 @@ theme:
     - announce.dismiss
     - navigation.footer
     - navigation.indexes
+    - content.code.select
+    - content.code.copy
+    - content.code.annotate
 
 # Additional configuration
 extra:
@@ -132,14 +135,8 @@ markdown_extensions:
       repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.snippets:
-      auto_append:
-        - includes/mkdocs.md
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
       combine_header_slug: true
@@ -172,10 +169,10 @@ nav:
         - API: "framework/sigmax/api.md"  
         - FAQ: "framework/sigmax/faq.md"
     - Σ-Data: 
-        - Σ-Data: "framework/sigmadate/index.md"
-        - Usage: "framework/sigmadate/usage.md"
-        - API: "framework/sigmadate/api.md"
-        - FAQ: "framework/sigmadate/faq.md"
+        - Σ-Data: "framework/sigmadata/index.md"
+        - Usage: "framework/sigmadata/usage.md"
+        - API: "framework/sigmadata/api.md"
+        - FAQ: "framework/sigmadata/faq.md"
     - Σ-TA:
         - Σ-TA: "framework/sigmata/index.md"
         - Usage: "framework/sigmata/usage.md"
@@ -224,9 +221,7 @@ nav:
 
   - Reference:
       - Reference: "reference/index.md"
-      - Architecture: "reference/architecture.md"
       - CLI Commands: "reference/cli.md"
-      - Error Codes: "reference/error-codes.md"
       - About: "reference/about.md"
       - Performance Metrics: 
           - Performance Metrics: "reference/performance/index.md"
