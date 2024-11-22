@@ -180,7 +180,9 @@ nav:
     - Σ-TA:
         - Σ-TA: "framework/sigmata/index.md"
         - Usage: "framework/sigmata/usage.md"
-        - Indicators: "framework/sigmata/indicators.md"
+        - List: "framework/sigmata/supported_indicators.md"
+        - Details: "framework/sigmata/indicators_details.md"
+        - Performance: "framework/sigmata/performance.md"
         - API: "framework/sigmata/api.md"
         - FAQ: "framework/sigmata/faq.md"
     - Σ-Stats:

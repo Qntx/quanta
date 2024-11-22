@@ -34,25 +34,45 @@
 
 ## 🚀 快速开始
 
-开始使用 **Quantum** 非常简单：  
+<div class="grid cards" markdown>
 
-1. [安装 Quantum](installation.md)  
-2. [运行第一个策略](quick-start.md)  
-3. [探索更多高级功能](../tutorials/index.md)  
+-   :material-package-variant-closed:{ .lg .middle } __安装 Quantum__
 
-点击上方链接，立即开始你的量化交易之旅！
+    ---
 
----
+    获取 Quanta 框架，并配置你的量化交易环境，快速启动量化之旅。
 
-## 🔗 更多资源
+    [:octicons-arrow-right-24: 安装指南](installation.md)
 
-- [文档目录](index.md)  
-- [常见问题](faq.md)  
-- [加入社区](https://github.com/qntx/quanta/discussions)  
+-   :material-rocket-launch:{ .lg .middle } __运行第一个策略__
+
+    ---
+
+    创建并运行你的第一个交易策略，快速上手并探索 Quanta 的核心功能。
+
+    [:octicons-arrow-right-24: 快速开始](quick-start.md)
+
+-   :material-magnify:{ .lg .middle } __探索更多高级功能__
+
+    ---
+
+    深入了解 Quantum 的强大功能，掌握智能策略开发与优化的秘诀。
+
+    [:octicons-arrow-right-24: 高级教程](../tutorials/index.md)
+
+-   :material-help-circle:{ .lg .middle } __常见问题__
+
+    ---
+
+    解答使用 Quantum 时的常见问题，帮助你解决实际使用中的困惑。
+
+    [:octicons-arrow-right-24: 查看 FAQ](faq.md)
+
+</div>
+
 
 ---
 
 <p align="center">
   <strong>在创新中汇聚力量，于金融中追求平衡。立即探索 Quanta，开启你的量化交易之旅！</strong>
 </p>
-
