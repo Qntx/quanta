@@ -162,6 +162,7 @@ nav:
   - Tutorials:
     - Tutorials: "tutorials/index.md"
     - Configuration: "tutorials/configuration.md"
+    - API: "tutorials/api.md"
 
   - Framework:
     - Framework: "framework/index.md"
@@ -178,7 +179,7 @@ nav:
     - Σ-TA:
         - Σ-TA: "framework/sigmata/index.md"
         - Usage: "framework/sigmata/usage.md"
-        - List: "framework/sigmata/supported_indicators.md"
+        - Indicators: "framework/sigmata/supported_indicators.md"
         - Details: "framework/sigmata/indicators_details.md"
         - Performance: "framework/sigmata/performance.md"
         - API: "framework/sigmata/api.md"
