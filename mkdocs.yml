@@ -55,12 +55,10 @@ theme:
 # Additional configuration
 extra:
   consent:
-    title: Cookie consent
+    title: Cookie 使用声明
     description: >- 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
+      我们使用 Cookie 记录您多次访问的行为和偏好，同时评估我们的文档效果以及用户是否能够找到所需信息。
+      在您同意的前提下，您将帮助我们优化文档内容。
     consent:
     actions:
       - accept

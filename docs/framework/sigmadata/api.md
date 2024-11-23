@@ -4,26 +4,22 @@
 
 `DataManager` 是一个数据管理系统，旨在高效处理加密货币数据的检索和存储。它利用数据库缓存来最小化冗余的 API 请求，从而优化数据获取过程。
 
-
-??? note "Class Data 类图"
+??? note "Class DataManager 类图"
     ```mermaid
     classDiagram
         class DataManager {
             %% 外部属性
             +db_path : str
             +db_check_same_thread : bool
-
             %% 内部属性
             -exchange : ccxt.Exchange
             -data_source : CcxtSource
             -db : Database
             -exchange_name : str
             -exchange_param : dict
-    
             %% 外部方法
             +__init__()
             +get_data()
-    
             %% 内部方法
             -_query_existing_data()
             -_fetch_and_store_data()
@@ -78,6 +74,9 @@ def __init__(
 | ------------ | ------------------------------------------------------------ |
 | `ValueError` | 如果 `exchange_name` 为空或无效，或者提供的 `exchange` 实例无效。 |
 
+!!! warning "异步版本说明"
+	异步版本中不支持 check_same_thread 参数。
+
 ------
 
 ##### 2. `get_data`
@@ -121,12 +120,13 @@ def get_data(
 | ------------ | -------------------------------- |
 | `ValueError` | 如果 `end_date` 不是字符串类型。 |
 
-!!! warning
-    1. limit 的具体数值因不同交易所而不同，API 限制填写错误会导致数据获取不全，下面是几个交易所的数据： 
-        - Binance 默认为 1000。 
-        - OKX 默认为 100。 
-        - Bitget 默认为 200。 
-    2. columns 中必须包含 `timestamp` 或 `date` 其中一个，否则获取的数据没有顺序。如果两个都没有填写，默认返回 `date`。
+!!! warning "注意事项"  
+    1. **API 限制：** 各交易所的 `limit` 参数数值不同，设置错误可能导致数据不完整。以下为部分交易所的默认值：  
+        - OKX：100  
+        - Binance：1000  
+        - Bitget：200  
+    2. **字段要求：** `columns` 参数中必须包含 `timestamp` 或 `date` 字段之一，否则返回的数据无法排序。若两者均未指定，系统默认返回 `date` 字段。  
+    3. **实例化建议：** 推荐使用预初始化的交易所实例 (`ccxt.Exchange`) 来配置 `DataManager`，以确保更高效的资源管理和速率限制。  
 
 ------
 

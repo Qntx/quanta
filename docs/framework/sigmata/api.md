@@ -8,6 +8,44 @@
 
 `IndicatorManager` 类处理各种 `Indicator` 实例的生命周期，确保指标之间的依赖关系得到尊重。它监听来自 `Data` 类的数据事件，并触发适当的指标更新。该管理器支持同步和异步等待指标处理任务完成。
 
+??? note "Class IndicatorManager 类图"
+    ```mermaid
+    classDiagram
+        %% 类名
+        class IndicatorManager {
+            %% 外部属性
+            +names : List~str~
+            +indicators : List~Indicator~
+            +root_indicators : List~Indicator~
+            +dependent_indicators : List~Indicator~
+            +dict : Dict~str, Indicator~
+            +status : List~dict~
+            %% 私有属性
+            -_data : Data
+            -_lock : threading.RLock
+            -_executor : concurrent.futures.Executor
+            -_root_indicators : List~Indicator~
+            -_dependent_indicators : List~Indicator~
+            -_indicators_dict : Dict~str, Indicator~
+            -_root_indicators_futures : List~Future~
+            -_dependent_indicators_futures : List~Future~
+            %% 外部方法
+            +__init__()
+            +add_indicator()
+            +remove_indicator()
+            +get_indicator()
+            +I()
+            +synchronize()
+            +synchronize_async()
+            %% 私有方法
+            -_register_dependent_future()
+            -_on_data_changed()
+            -_safe_execute()
+        }
+    ```
+
+
+
 ------
 
 ### 外部接口
@@ -486,6 +524,59 @@ def _safe_execute(method, *args)
 ------
 
 `Indicator` 是一个用于高性能金融或技术指标的抽象基类。该类旨在高效处理时间序列数据，支持增量更新并确保线程安全。它作为实现各种需要实时数据处理和分析的金融指标的基础。
+
+??? note "Class Indicator 类图"
+    ```mermaid
+    classDiagram
+        class Indicator {
+            %% 外部属性
+            +values : np.ndarray
+            +timestamps : np.ndarray
+            +dict : Dict~str, List~float~~ abstract
+            %% 私有属性
+            -_lock : threading.RLock
+            -_executor : concurrent.futures.Executor
+            -_name : str
+            -_capacity : int
+            -_delete_size : int
+            -_pre_process : Callable~[np.ndarray], np.ndarray~~
+            -_post_process : Callable~[np.ndarray], np.ndarray~~
+            -_size : int
+            -_dependencies : List~Indicator~
+            -_sub_indicators : List~Indicator~
+            -_callbacks_sync : List~Callable~[[EventType, Indicator], None]~
+            -_callbacks : List~Callable~[[EventType, Indicator], None]~
+            -_dependent_indicators_futures : List~Future~
+            -_callbacks_futures : List~Future~
+            -_values : np.ndarray
+            -_timestamps : np.ndarray
+            %% 外部方法
+            +__init__()
+            +add_sub_indicator()
+            +add_dependency()
+            +init()
+            +add()
+            +update()
+            +remove()
+            +clear()
+            +register_callback_sync()
+            +unregister_callback_sync()
+            +register_callback()
+            +unregister_callback()
+            %% 私有方法
+            -_default_pre_process() (abstract)
+            -_default_post_process() (abstract)
+            -_compute_init_func() (abstract)
+            -_compute_incremental_func() (abstract)
+            -_notify_callbacks_sync()
+            -_notify_callbacks()
+            -_ensure_capacity()
+            -_delete_oldest()
+            -_expand_capacity()
+        }
+    ```
+
+
 
 ------
 
