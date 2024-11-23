@@ -4,6 +4,35 @@
 
 `DataManager` 是一个数据管理系统，旨在高效处理加密货币数据的检索和存储。它利用数据库缓存来最小化冗余的 API 请求，从而优化数据获取过程。
 
+
+??? note "Class Data 类图"
+    ```mermaid
+    classDiagram
+        class DataManager {
+            %% 外部属性
+            +db_path : str
+            +db_check_same_thread : bool
+
+            %% 内部属性
+            -exchange : ccxt.Exchange
+            -data_source : CcxtSource
+            -db : Database
+            -exchange_name : str
+            -exchange_param : dict
+    
+            %% 外部方法
+            +__init__()
+            +get_data()
+    
+            %% 内部方法
+            -_query_existing_data()
+            -_fetch_and_store_data()
+            -_determine_missing_ranges()
+        }
+    ```
+
+
+
 ------
 
 
@@ -239,6 +268,52 @@ def _determine_missing_ranges(
 ## Class `Data`
 
 `Data` 是一个管理 OHLCV（开盘价、高点、低点、收盘价、交易量）金融数据的单例类，支持高效的数据存储与操作。通过预分配 NumPy 数组实现高性能的数据操作，同时支持异步事件回调，可在数据修改时触发预定义操作。
+
+??? note "Class Data 类图"
+    ```mermaid
+        classDiagram
+        %% 定义 Data 类
+        class Data {
+            %% 外部属性
+            +columns : List~str~
+            +capacity : int
+            +delete_size : int
+            +size : int
+            +timestamp : np.ndarray
+            +open : np.ndarray
+            +high : np.ndarray
+            +low : np.ndarray
+            +close : np.ndarray
+            +volume : np.ndarray
+            +np : np.ndarray
+            +df : pd.DataFrame
+            %% 内部属性
+            -_lock : RLock
+            -_executor : Executor
+            -_callbacks_sync : List~Callable~
+            -_callbacks : List~Callable~
+            -_callback_futures : List~Future~
+            %% 外部方法
+            +__init__()
+            +init()
+            +add()
+            +update()
+            +remove()
+            +clear()
+            +register_callback_sync()
+            +unregister_callback_sync()
+            +register_callback()
+            +unregister_callback()
+            +wait_for_callbacks()
+            +wait_for_callbacks_async()
+            %% 内部方法
+            -_notify_callbacks_sync()
+            -_notify_callbacks()
+            -_process_input_data()
+            -_ensure_capacity()
+            -_initialize_data()
+        }
+    ```
 
 ------
 

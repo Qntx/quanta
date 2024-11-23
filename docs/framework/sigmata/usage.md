@@ -11,6 +11,57 @@
 !!! note "适用场景"
 	 **ΣTA** 适用于实时交易
 
+```mermaid
+classDiagram
+
+    %% 定义 Data 类
+    class Data {
+
+        %% 外部属性
+        +columns : List~str~
+        +capacity : int
+        +delete_size : int
+        +size : int
+        +timestamp : np.ndarray
+        +open : np.ndarray
+        +high : np.ndarray
+        +low : np.ndarray
+        +close : np.ndarray
+        +volume : np.ndarray
+        +np : np.ndarray
+        +df : pd.DataFrame
+        
+        %% 内部属性
+        -_lock : RLock
+        -_executor : Executor
+        -_callbacks_sync : List~Callable~[[EventType, Data], None]~
+        -_callbacks : List~Callable~[[EventType, Data], None]~
+        -_callback_futures : List~Future~
+
+        %% 外部方法
+        +__init__(capacity=1000, delete_size=100)
+        +init(data, call_callbacks=True)
+        +add(data, call_callbacks=True)
+        +update(data, call_callbacks=True)
+        +remove(call_callbacks=True)
+        +clear(count=None, call_callbacks=True)
+        +register_callback_sync(callback)
+        +unregister_callback_sync(callback)
+        +register_callback(callback)
+        +unregister_callback(callback)
+        +wait_for_callbacks(return_when=ALL_COMPLETED)
+        +wait_for_callbacks_async(return_when=ALL_COMPLETED)
+        
+         %% 内部方法
+        -_notify_callbacks_sync(event_type) : void
+        -_notify_callbacks(event_type) : void
+        -_process_input_data(data, single_row=False) : np.ndarray
+        -_ensure_capacity(n_new) : void
+        -_initialize_data(data) : np.ndarray
+    }
+
+```
+
 
 
 
