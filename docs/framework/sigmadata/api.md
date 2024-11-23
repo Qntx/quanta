@@ -6,6 +6,7 @@
 
 ------
 
+
 ### 外部接口
 
 #### **外部方法**
@@ -237,19 +238,7 @@ def _determine_missing_ranges(
 
 ## Class `Data`
 
-`Data` 是 ΣData 的本地数据管理核心，主要负责存储和操作本地 OHLCV 数据。它以高效的 NumPy 数据存储为基础，支持快速数据操作。
-
-------
-
-### 核心功能
-
-| 功能             | 描述                                                     |
-| ---------------- | -------------------------------------------------------- |
-| **初始化数据**   | 使用 Pandas DataFrame、NumPy 数组或列表初始化数据。      |
-| **添加数据**     | 动态添加单条或多条新的 OHLCV 数据（支持容量管理）。      |
-| **更新数据**     | 更新最新的 OHLCV 数据（用于修改最后一条记录）。          |
-| **删除数据**     | 删除最旧的 OHLCV 数据或清空所有数据。                    |
-| **事件回调支持** | 提供同步与异步事件回调（如数据添加、更新、删除等事件）。 |
+`Data` 是一个管理 OHLCV（开盘价、高点、低点、收盘价、交易量）金融数据的单例类，支持高效的数据存储与操作。通过预分配 NumPy 数组实现高性能的数据操作，同时支持异步事件回调，可在数据修改时触发预定义操作。
 
 ------
 
@@ -257,9 +246,30 @@ def _determine_missing_ranges(
 
 #### 外部方法
 
-------
+##### 1. `__init__`
 
-##### 1. `init`
+```python
+def __init__(self, capacity: int = 1000, delete_size: int = 100)
+```
+
+**功能说明**: 初始化 `Data` 实例，但不加载数据。通过 `init` 方法填充数据集。
+
+**参数**:
+
+| 参数          | 类型  | 描述                                                         |
+| ------------- | ----- | ------------------------------------------------------------ |
+| `capacity`    | `int` | NumPy 数组的最大容量（最多存储的 OHLCV 数据点数量）。默认值为 `1000`。 |
+| `delete_size` | `int` | 在数组满时删除的最旧数据点的数量。默认值为 `100`。           |
+
+**返回值**:
+
+| 类型   | 描述 |
+| ------ | ---- |
+| `None` | 无   |
+
+**异常**: 无
+
+##### 2. `init`
 
 ```python
 def init(
@@ -293,7 +303,7 @@ def init(
 
 ------
 
-##### 2. `add`
+##### 3. `add`
 
 ```python
 def add(
@@ -330,7 +340,7 @@ def add(
 
 ------
 
-##### 3. `update`
+##### 4. `update`
 
 ```python
 def update(
@@ -364,7 +374,7 @@ def update(
 
 ------
 
-##### 4. `remove`
+##### 5. `remove`
 
 ```python
 def remove(
@@ -395,7 +405,7 @@ def remove(
 
 ------
 
-##### 5. `clear`
+##### 6. `clear`
 
 ```python
 def clear(
@@ -429,7 +439,7 @@ def clear(
 
 ------
 
-##### 6. `register_callback_sync`
+##### 7. `register_callback_sync`
 
 ```python
 def register_callback_sync(
@@ -460,7 +470,7 @@ def register_callback_sync(
 
 ------
 
-##### 7. `unregister_callback_sync`
+##### 8. `unregister_callback_sync`
 
 ```python
 def unregister_callback_sync(
@@ -491,7 +501,7 @@ def unregister_callback_sync(
 
 ------
 
-##### 8. `wait_for_callbacks`
+##### 9. `wait_for_callbacks`
 
 ```python
 def wait_for_callbacks(
@@ -522,7 +532,7 @@ def wait_for_callbacks(
 
 ------
 
-##### 9. `wait_for_callbacks_async`
+##### 10. `wait_for_callbacks_async`
 
 ```python
 async def wait_for_callbacks_async(
@@ -553,7 +563,7 @@ async def wait_for_callbacks_async(
 
 ------
 
-### 外部属性
+#### 属性
 
 | 属性名        | 类型           | 描述                                                         |
 | ------------- | -------------- | ------------------------------------------------------------ |

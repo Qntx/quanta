@@ -66,7 +66,7 @@ def get_data(
         - OKX 默认为 100。 
         - Binance 默认为 1000。 
         - Bitget 默认为 200。 
-    2. columns 中必须包含 `timestamp` 或 `date` 其中一个，否则获取的数据没有顺序。如果两个都没有填写，默认返回 `date`。
+        2. columns 中必须包含 `timestamp` 或 `date` 其中一个，否则获取的数据没有顺序。如果两个都没有填写，默认返回 `date`。
 
 
 
