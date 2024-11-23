@@ -6,10 +6,7 @@
 <p align="center">
   <strong>Σ in innovation, harmony in finance.</strong>
 </p>
-
 ---
-
-## 🧭 Quantum
 
 **Quantum** 是 Quanta 框架的核心组件，以 Wyckoff 供需理论为基础，融合创新技术与严谨逻辑，专注历史交易数据与订单簿深度分析，为交易者提供一站式高性能量化解决方案。
 

@@ -6,8 +6,9 @@
     </a>
 </h1>
 <p style="text-align: center; font-size: 1rem; color: #555; margin-top: 0;">
-    <strong style="color: #007acc;">v0.4.0</strong>
+    <strong style="color: #007acc;">v0.4.1</strong>
 </p>
+
 
 **ΣData** 是一个高效的 Python 数据管理包，专为加密货币交易数据设计。它集成了 **CCXT** 库，支持从多个交易所获取历史 **ohlcv** 与 **trades** 数据，并通过本地 **SQLite** 数据库存储优化数据访问性能。无论是用于回测、分析，还是开发交易策略，**ΣData** 都能提供可靠的数据支持。
 
