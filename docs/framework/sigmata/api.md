@@ -287,6 +287,38 @@ def status(self) -> List[dict]
 | ------------ | ------------------------ |
 | `List[dict]` | 每个指标状态的字典列表。 |
 
+??? note "返回值示例"
+    返回值参数解释：
+
+    - name: 指标的名称，用于标识具体指标实例。
+    - size: 当前指标中存储的数据条数，反映存储的实际内容量。
+    - capacity: 指标实例的存储容量上限，表示可以存储的最大数据条数。
+    - dependencies: 该指标所依赖的其他指标的名称，列表形式。
+    - sub_indicators: 子指标列表，指与该指标关联的其他指标。
+    - initialized: 指标是否完成初始化，true 表示已初始化，false 表示未初始化。
+    
+    ```json
+    [
+        {
+            "name": "SMA_50",
+            "size": 150,
+            "capacity": 1000,
+            "dependencies": [], 
+            "sub_indicators": ["EMA_20"],
+            "initialized": True
+        },
+        ...
+        {
+            "name": "RSI_14",
+            "size": 0,
+            "capacity": 1000,
+            "dependencies": ["EMA_20"], 
+            "sub_indicators": [],
+            "initialized": False
+        }
+    ]
+    ```
+
 **异常**:
 
 | 异常类型 | 描述 |
