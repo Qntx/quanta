@@ -1,17 +1,18 @@
 [tool.poetry]
-name = "quanta"
+name = "qnta"
 version = "0.0.1"
 description = "Σ in innovation, harmony in finance"
 authors = ["CtrlX <gitctrlx@gmail.com>"]
 license = "GPLv3"
 readme = "README.md"
+packages = [{include = "quanta"}]
 
 [tool.poetry.scripts]
 qnta = "quanta.qnta:app"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-quantum = { git = "https://github.com/qntx/Quantum.git" }
+# quantum = { git = "https://github.com/qntx/Quantum.git" }
 typer = "^0.12.5"
 
 [tool.poetry.group.doc.dependencies]
