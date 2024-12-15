@@ -1,19 +1,22 @@
 [tool.poetry]
 name = "qnta"
-version = "0.0.1"
+version = "0.0.2"
 description = "Σ in innovation, harmony in finance"
 authors = ["CtrlX <gitctrlx@gmail.com>"]
 license = "GPLv3"
 readme = "README.md"
-packages = [{include = "quanta"}]
+packages = [{include = "qnta"}]
 
 [tool.poetry.scripts]
-qnta = "quanta.qnanta:app"
+qnta = "qnta.qnta:app"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-quantum = { version = "^0.2.0", optional = false }
+quantum = { version = "^0.2.0", optional = false } 
+# quantum = { git = "ssh://git@github.com/qntx/Quantum.git", rev = "main" }
+# pip install git+https://github.com/qntx/Quantum.git
 typer = "^0.12.5"
+loguru = "^0.7.2"
 
 [tool.poetry.group.doc.dependencies]
 mkdocs = "^1.6.1"
