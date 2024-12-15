@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qnta"
-version = "0.0.2"
+version = "0.0.3"
 description = "Σ in innovation, harmony in finance"
 authors = ["CtrlX <gitctrlx@gmail.com>"]
 license = "GPLv3"
