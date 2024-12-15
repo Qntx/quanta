@@ -17,7 +17,7 @@ copyright: >
 # Configuration
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: docs/overrides
 
   logo: assets/images/logos/logo-white.svg
   favicon: assets/images/logos/logo.svg
@@ -99,7 +99,7 @@ plugins:
 
 # Hooks
 # hooks:
-#   - overrides/hooks/socialmedia.py
+#   - docs/overrides/hooks/socialmedia.py
 
 # Extensions
 markdown_extensions:
