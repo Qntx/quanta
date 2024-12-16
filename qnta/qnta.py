@@ -7,6 +7,7 @@ from loguru import logger
 from dotenv import load_dotenv
 from typing import List
 from pathlib import Path
+from copier import run_copy
 
 from qnta.utils import check_and_install_quantum, print_banner
 from quantum.broker.broker_manager import BrokerManager
@@ -21,15 +22,39 @@ if sys.platform == "win32":
 
 
 @app.command()
-def init():
+def init(
+    template: str = "gh:Qntx/quanta-template",
+    path: str = ".",
+    project_name: str = typer.Option(..., prompt=True, help="Name of the project"),
+    module_name: str = typer.Option(..., prompt=True, help="Name of the module"),
+):
     """
-    Initialize the package by installing required dependencies.
+    Initialize the package by installing required dependencies and setting up project from template.
+
+    Args:
+        template: Git repository template to use (default: gh:Qntx/quanta-template)
+        path: Target directory path for project initialization (default: current directory)
+        project_name: Name of the project (will be prompted if not provided)
+        module_name: Name of the module (will be prompted if not provided)
     """
     success, message = check_and_install_quantum()
-    if success:
-        logger.success(message)
-    else:
+    if not success:
         logger.error(message)
+        raise typer.Exit(1)
+    logger.success(message)
+
+    try:
+        logger.info("Initializing project from template...")
+        run_copy(
+            src_path=template,
+            dst_path=path,
+            data={"project_name": project_name, "module_name": module_name},
+            defaults=True,
+            unsafe=True,
+        )
+        logger.success("Successfully initialized project from template!")
+    except Exception as e:
+        logger.error(f"Failed to initialize project from template: {str(e)}")
         raise typer.Exit(1)
 
 
