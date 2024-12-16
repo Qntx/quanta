@@ -1,20 +1,20 @@
 import typer
-import subprocess
 import sys
 import ccxt.pro as ccxt
 import asyncio
 import os
-from importlib.util import find_spec
 from loguru import logger
 from dotenv import load_dotenv
 from typing import List
+from pathlib import Path
 
-from qnta.utils.util import print_banner
+from qnta.utils import check_and_install_quantum, print_banner
 from quantum.broker.broker_manager import BrokerManager
 
 app = typer.Typer()
 
-load_dotenv()
+# Load .env from current working directory
+load_dotenv(dotenv_path=Path(os.getcwd()) / ".env")
 
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -25,25 +25,12 @@ def init():
     """
     Initialize the package by installing required dependencies.
     """
-    if find_spec("quantum") is None:
-        logger.info("Installing quantum package...")
-        try:
-            subprocess.check_call(
-                [
-                    sys.executable,
-                    "-m",
-                    "pip",
-                    "install",
-                    "-U",
-                    "git+https://github.com/qntx/Quantum.git",
-                ]
-            )
-            logger.success("Successfully installed quantum package!")
-        except subprocess.CalledProcessError:
-            logger.error("Failed to install quantum package")
-            raise typer.Exit(1)
+    success, message = check_and_install_quantum()
+    if success:
+        logger.success(message)
     else:
-        logger.info("Quantum package is already installed")
+        logger.error(message)
+        raise typer.Exit(1)
 
 
 @app.command()
@@ -51,6 +38,11 @@ def run():
     """
     Run the quantum program.
     """
+    success, message = check_and_install_quantum()
+    if not success:
+        logger.warning(message)
+        raise typer.Exit(1)
+
     print_banner()
     logger.info("Starting quantum program...")
 
@@ -71,6 +63,11 @@ def monitor(
         mode: Trading mode ('paper' or 'live')
         type: Market type ('swap', 'spot', etc)
     """
+    success, message = check_and_install_quantum()
+    if not success:
+        logger.warning(message)
+        raise typer.Exit(1)
+
     logger.info(
         f"Starting trading bot with broker: {broker}, symbols: {symbols}, mode: {mode}"
     )
