@@ -59,6 +59,18 @@ def init(
 
 
 @app.command()
+def check():
+    """
+    Check if the quantum environment is properly configured.
+    """
+    success, message = check_and_install_quantum()
+    if not success:
+        logger.error(message)
+        raise typer.Exit(1)
+    logger.success(message)
+
+
+@app.command()
 def run():
     """
     Run the quantum program.
