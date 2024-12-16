@@ -12,6 +12,8 @@ from copier import run_copy
 from qnta.utils import check_and_install_quantum, print_banner
 from quantum.broker.broker_manager import BrokerManager
 
+from qnta.utils.util import check_env_vars
+
 app = typer.Typer(help="Qnta CLI - A powerful tool for quantum trading")
 
 # Load .env from current working directory
@@ -84,11 +86,20 @@ def check():
     - System dependencies
     - Configuration files
     """
+    # Check and install quantum
     success, message = check_and_install_quantum()
     if not success:
         logger.error(message)
         raise typer.Exit(1)
     logger.success(message)
+
+    # Check required environment variables
+    env_success, _, error_msg = check_env_vars()
+    if not env_success:
+        logger.error(error_msg)
+        logger.info("Please add the missing variables to your .env file")
+        raise typer.Exit(1)
+    logger.success("Quantum environment configuration is correct!")
 
 
 @app.command()
@@ -149,6 +160,7 @@ def monitor(
     - Risk management indicators
     - P&L tracking
     """
+    # Check and install quantum
     success, message = check_and_install_quantum()
     if not success:
         logger.warning(message)
@@ -159,19 +171,9 @@ def monitor(
     )
 
     # Check required environment variables
-    required_env_vars = {
-        "HTTP_PROXY": os.getenv("HTTP_PROXY"),
-        "WS_PROXY": os.getenv("WS_PROXY"),
-        "API_KEY": os.getenv("API_KEY"),
-        "SECRET": os.getenv("SECRET"),
-        "PASSWORD": os.getenv("PASSWORD"),
-    }
-
-    missing_vars = [var for var, value in required_env_vars.items() if value is None]
-    if missing_vars:
-        logger.error(
-            f"Missing required environment variables: {', '.join(missing_vars)}"
-        )
+    env_success, env_vars, error_msg = check_env_vars()
+    if not env_success:
+        logger.error(error_msg)
         logger.info("Please add the missing variables to your .env file")
         raise typer.Exit(1)
 
@@ -186,11 +188,11 @@ def monitor(
         exchange_class = getattr(ccxt, exchange_name)
         exchange = exchange_class(
             {
-                "httpsProxy": required_env_vars["HTTP_PROXY"],
-                "wsProxy": required_env_vars["WS_PROXY"],
-                "apiKey": required_env_vars["API_KEY"],
-                "secret": required_env_vars["SECRET"],
-                "password": required_env_vars["PASSWORD"],
+                "httpsProxy": env_vars["HTTP_PROXY"],
+                "wsProxy": env_vars["WS_PROXY"],
+                "apiKey": env_vars["API_KEY"],
+                "secret": env_vars["SECRET"],
+                "password": env_vars["PASSWORD"],
                 "options": {"defaultType": type},
             }
         )
