@@ -113,9 +113,17 @@ def run():
     3. Initializes trading engine
     4. Starts trading operations
     """
+    # Check and install quantum
     success, message = check_and_install_quantum()
     if not success:
-        logger.warning(message)
+        logger.error(message)
+        raise typer.Exit(1)
+
+    # Check required environment variables
+    env_success, _, error_msg = check_env_vars()
+    if not env_success:
+        logger.error(error_msg)
+        logger.info("Please add the missing variables to your .env file")
         raise typer.Exit(1)
 
     print_banner()
@@ -163,12 +171,8 @@ def monitor(
     # Check and install quantum
     success, message = check_and_install_quantum()
     if not success:
-        logger.warning(message)
+        logger.error(message)
         raise typer.Exit(1)
-
-    logger.info(
-        f"Starting trading bot with broker: {broker}, symbols: {symbols}, mode: {mode}"
-    )
 
     # Check required environment variables
     env_success, env_vars, error_msg = check_env_vars()
