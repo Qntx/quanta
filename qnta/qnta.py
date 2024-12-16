@@ -80,13 +80,19 @@ def monitor(
     type: str = "swap",
 ):
     """
-    Run the trading bot with specified symbols and mode.
+    Monitor exchange account data and execution status via command line interface.
+
+    This command connects to the specified exchange and provides real-time monitoring of:
+    - Account balances and positions
+    - Open orders and execution status
+    - Market data for specified trading symbols
+    - Trading activities and performance metrics
 
     Args:
         broker: Broker name in format 'provider:exchange' (e.g. 'ccxt:bitget')
-        symbols: List of trading symbols
-        mode: Trading mode ('paper' or 'live')
-        type: Market type ('swap', 'spot', etc)
+        symbols: List of trading symbols to monitor
+        mode: Trading mode ('paper' for simulation or 'live' for real trading)
+        type: Market type ('swap' for perpetual futures, 'spot' for spot trading, etc)
     """
     success, message = check_and_install_quantum()
     if not success:
