@@ -12,7 +12,7 @@ from copier import run_copy
 from qnta.utils import check_and_install_quantum, print_banner
 from quantum.broker.broker_manager import BrokerManager
 
-app = typer.Typer()
+app = typer.Typer(help="Qnta CLI - A powerful tool for quantum trading")
 
 # Load .env from current working directory
 load_dotenv(dotenv_path=Path(os.getcwd()) / ".env")
@@ -23,19 +23,34 @@ if sys.platform == "win32":
 
 @app.command()
 def init(
-    template: str = "gh:Qntx/quanta-template",
-    path: str = ".",
-    project_name: str = typer.Option(..., prompt=True, help="Name of the project"),
-    module_name: str = typer.Option(..., prompt=True, help="Name of the module"),
+    template: str = typer.Option(
+        "gh:Qntx/quanta-template",
+        "--template",
+        "-t",
+        help="Git repository template to use for project initialization",
+    ),
+    path: str = typer.Option(
+        ".", "--path", "-p", help="Target directory path for project initialization"
+    ),
+    project_name: str = typer.Option(
+        ...,
+        prompt=True,
+        help="Name of the project - Used for package naming and documentation",
+    ),
+    module_name: str = typer.Option(
+        ...,
+        prompt=True,
+        help="Name of the module - Used for importing and internal references",
+    ),
 ):
     """
-    Initialize the package by installing required dependencies and setting up project from template.
+    Initialize a new quantum trading project with required dependencies and template structure.
 
-    Args:
-        template: Git repository template to use (default: gh:Qntx/quanta-template)
-        path: Target directory path for project initialization (default: current directory)
-        project_name: Name of the project (will be prompted if not provided)
-        module_name: Name of the module (will be prompted if not provided)
+    This command will:
+    1. Check and install quantum dependencies
+    2. Create project structure from template
+    3. Set up configuration files
+    4. Initialize git repository if needed
     """
     success, message = check_and_install_quantum()
     if not success:
@@ -61,7 +76,13 @@ def init(
 @app.command()
 def check():
     """
-    Check if the quantum environment is properly configured.
+    Verify quantum environment configuration and dependencies.
+
+    Checks:
+    - Python environment and version
+    - Required packages installation
+    - System dependencies
+    - Configuration files
     """
     success, message = check_and_install_quantum()
     if not success:
@@ -73,7 +94,13 @@ def check():
 @app.command()
 def run():
     """
-    Run the quantum program.
+    Execute the quantum trading program.
+
+    This command:
+    1. Verifies environment setup
+    2. Loads trading configurations
+    3. Initializes trading engine
+    4. Starts trading operations
     """
     success, message = check_and_install_quantum()
     if not success:
@@ -86,25 +113,41 @@ def run():
 
 @app.command()
 def monitor(
-    broker: str = "ccxt:bitget",
-    symbols: List[str] = ["SBTC/SUSDT:SUSDT"],
-    mode: str = "paper",
-    type: str = "swap",
+    broker: str = typer.Option(
+        "ccxt:bitget",
+        "--broker",
+        "-b",
+        help="Broker identifier in format 'provider:exchange' (e.g. 'ccxt:bitget')",
+    ),
+    symbols: List[str] = typer.Option(
+        ["SBTC/SUSDT:SUSDT"],
+        "--symbols",
+        "-s",
+        help="Trading symbols to monitor (e.g. 'BTC/USDT')",
+    ),
+    mode: str = typer.Option(
+        "paper",
+        "--mode",
+        "-m",
+        help="Trading mode: 'paper' for simulation, 'live' for real trading",
+    ),
+    type: str = typer.Option(
+        "swap",
+        "--type",
+        "-t",
+        help="Market type: 'swap' for perpetual futures, 'spot' for spot trading",
+    ),
 ):
     """
     Monitor exchange account data and execution status via command line interface.
 
-    This command connects to the specified exchange and provides real-time monitoring of:
+    This command provides real-time monitoring of:
     - Account balances and positions
     - Open orders and execution status
     - Market data for specified trading symbols
     - Trading activities and performance metrics
-
-    Args:
-        broker: Broker name in format 'provider:exchange' (e.g. 'ccxt:bitget')
-        symbols: List of trading symbols to monitor
-        mode: Trading mode ('paper' for simulation or 'live' for real trading)
-        type: Market type ('swap' for perpetual futures, 'spot' for spot trading, etc)
+    - Risk management indicators
+    - P&L tracking
     """
     success, message = check_and_install_quantum()
     if not success:
