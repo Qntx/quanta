@@ -158,6 +158,4 @@ def monitor(
 
 
 if __name__ == "__main__":
-    # Configure logger
-    logger.add("qnta.log", rotation="500 MB")
     app()
