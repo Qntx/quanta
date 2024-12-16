@@ -1,6 +1,7 @@
 from importlib.util import find_spec
 import subprocess
 import sys
+import ensurepip
 from typing import Tuple
 from art import tprint
 from loguru import logger
@@ -24,6 +25,9 @@ def check_and_install_quantum() -> Tuple[bool, str]:
     if find_spec("quantum") is None:
         logger.warning("Quantum package is not installed, attempting to install...")
         try:
+            # Ensure pip is available
+            ensurepip.bootstrap(upgrade=True)
+
             subprocess.check_call(
                 [
                     sys.executable,
