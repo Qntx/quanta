@@ -3,13 +3,14 @@ import sys
 import ccxt.pro as ccxt
 import asyncio
 import os
+import shutil
 from loguru import logger
 from dotenv import load_dotenv
 from typing import List
 from pathlib import Path
 from copier import run_copy
 
-from qnta.utils import check_and_install_quantum, print_banner
+from qnta.utils import print_banner, check_and_install_package
 from quantum.broker.broker_manager import BrokerManager
 
 from qnta.utils.util import check_env_vars
@@ -54,7 +55,9 @@ def init(
     3. Set up configuration files
     4. Initialize git repository if needed
     """
-    success, message = check_and_install_quantum()
+    success, message = check_and_install_package(
+        "quantum", "https://github.com/Qntx/Quantum.git"
+    )
     if not success:
         logger.error(message)
         raise typer.Exit(1)
@@ -87,19 +90,73 @@ def check():
     - Configuration files
     """
     # Check and install quantum
-    success, message = check_and_install_quantum()
+    success, message = check_and_install_package(
+        "quantum", "https://github.com/Qntx/Quantum.git"
+    )
     if not success:
         logger.error(message)
         raise typer.Exit(1)
     logger.success(message)
 
     # Check required environment variables
-    env_success, _, error_msg = check_env_vars()
+    env_success, _, message = check_env_vars()
     if not env_success:
-        logger.error(error_msg)
+        logger.error(message)
         logger.info("Please add the missing variables to your .env file")
         raise typer.Exit(1)
-    logger.success("Quantum environment configuration is correct!")
+    logger.success(message)
+
+
+@app.command()
+def update():
+    """
+    Update the quantum Python package to the latest version.
+
+    This command:
+    1. Checks current installation
+    2. Updates quantum package using pip
+    3. Verifies the update was successful
+    """
+    try:
+        logger.info("Updating quantum package...")
+        os.system("pip install --upgrade quantum")
+        logger.success("Successfully updated quantum package!")
+    except Exception as e:
+        logger.error(f"Failed to update quantum package: {str(e)}")
+        raise typer.Exit(1)
+
+
+@app.command()
+def clean():
+    """
+    Clean up environment by removing log files and temporary data.
+
+    This command:
+    1. Removes log files
+    2. Cleans temporary data
+    3. Removes cache files
+    """
+    try:
+        logger.info("Cleaning environment...")
+
+        # Clean log files
+        log_files = Path(".").glob("*.log")
+        for log_file in log_files:
+            log_file.unlink()
+
+        # Clean __pycache__ directories
+        for cache_dir in Path(".").rglob("__pycache__"):
+            shutil.rmtree(cache_dir)
+
+        # Clean .pytest_cache if exists
+        pytest_cache = Path(".pytest_cache")
+        if pytest_cache.exists():
+            shutil.rmtree(pytest_cache)
+
+        logger.success("Successfully cleaned environment!")
+    except Exception as e:
+        logger.error(f"Failed to clean environment: {str(e)}")
+        raise typer.Exit(1)
 
 
 @app.command()
@@ -114,15 +171,17 @@ def run():
     4. Starts trading operations
     """
     # Check and install quantum
-    success, message = check_and_install_quantum()
+    success, message = check_and_install_package(
+        "quantum", "https://github.com/Qntx/Quantum.git"
+    )
     if not success:
         logger.error(message)
         raise typer.Exit(1)
 
     # Check required environment variables
-    env_success, _, error_msg = check_env_vars()
+    env_success, _, message = check_env_vars()
     if not env_success:
-        logger.error(error_msg)
+        logger.error(message)
         logger.info("Please add the missing variables to your .env file")
         raise typer.Exit(1)
 
@@ -169,15 +228,17 @@ def monitor(
     - P&L tracking
     """
     # Check and install quantum
-    success, message = check_and_install_quantum()
+    success, message = check_and_install_package(
+        "quantum", "https://github.com/Qntx/Quantum.git"
+    )
     if not success:
         logger.error(message)
         raise typer.Exit(1)
 
     # Check required environment variables
-    env_success, env_vars, error_msg = check_env_vars()
+    env_success, env_vars, message = check_env_vars()
     if not env_success:
-        logger.error(error_msg)
+        logger.error(message)
         logger.info("Please add the missing variables to your .env file")
         raise typer.Exit(1)
 
